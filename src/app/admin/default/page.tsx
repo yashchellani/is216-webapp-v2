@@ -1,11 +1,7 @@
 'use client';
 
-import WeeklyRevenue from 'components/admin/default/WeeklyRevenue';
-import TotalSpent from 'components/admin/default/TotalSpent';
 import PieChartCard from 'components/admin/default/PieChartCard';
-import { IoMdHome } from 'react-icons/io';
-import { IoDocuments } from 'react-icons/io5';
-import { MdBarChart, MdDashboard } from 'react-icons/md';
+
 
 import Widget from 'components/widget/Widget';
 import CheckTable from 'components/admin/default/CheckTable';
@@ -14,24 +10,11 @@ import DailyTraffic from 'components/admin/default/DailyTraffic';
 import TaskCard from 'components/admin/default/TaskCard';
 import tableDataCheck from 'variables/data-tables/tableDataCheck';
 import tableDataComplex from 'variables/data-tables/tableDataComplex';
-import {
-  FirstCard,
-  FourthCard,
-  SecondCard,
-  SixthCard,
-  ThirdCard,
-} from 'components/carddemo/CardDemo';
-import { Slide, Fade } from 'react-slideshow-image';
+
 import 'react-slideshow-image/dist/styles.css';
 import {
   AiFillFilePdf,
   AiFillInstagram,
-  AiOutlineLineChart,
-  AiOutlineRedo,
-  AiOutlineRest,
-  AiOutlineSend,
-  AiOutlineVerticalAlignBottom,
-  AiTwotoneBank,
 } from 'react-icons/ai';
 import { useEffect, useRef, useState } from 'react';
 
@@ -42,19 +25,7 @@ import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 import { useRouter } from 'next/navigation';
 
-const spanStyle = {
-  padding: '20px',
-  background: '#efefef',
-  color: '#000000',
-};
 
-const divStyle = {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  backgroundSize: 'cover',
-  height: '400px',
-};
 
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
@@ -102,18 +73,8 @@ const Dashboard = () => {
     return text;
   };
 
-  const handleSendMessage = () => {
-    setShowIt(!showIt);
-    if (input.trim() !== '') {
-      setMessages((prev) => [...prev, input]);
-      setInput('');
-    }
-  };
 
   const fileType = 'application/pdf';
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInput(e.target.value);
-  };
 
   const handlePdfUpload = (e) => {
     let file = e.target.files[0];
@@ -161,8 +122,6 @@ const Dashboard = () => {
       {file.path} - {file.size} bytes
     </li>
   ));
-
-  const pdfplugin = defaultLayoutPlugin();
 
   useEffect(scrollToBottom, [messages]);
 
